@@ -30,10 +30,18 @@ Este projeto justifica-se pela proposição de uma arquitetura de Sistemas Multi
 
 ## ⚙️ Arquitetura e Inovações Técnicas
 
-1. **Network-on-Chip (NoC) Assíncrona:** Comunicação inter-agentes baseada no protocolo AXI-Stream. Garante que rajadas de dados estocásticos (como contrações no canal EMG) não causem gargalos na via de processamento de sinais vitais prioritários (ECG).
-2. **O Agente Termodinâmico:** Módulo RTL dedicado ao cálculo da equação cumulativa $CEM43 = \int R^{(43-T)} dt$. Ao prever a violação térmica biológica, o agente desativa preventivamente a extração de características de agentes periféricos (ex: EMG), reduzindo a dissipação por Efeito Joule (*Graceful Degradation*).
-3. **Precisão Mista e Quantização:** Co-design algoritmo-hardware utilizando quantização extrema (INT4) e aritmética de ponto fixo via Vitis HLS, viabilizando a execução dentro de orçamentos rígidos de memória BRAM/URAM.
+A arquitetura proposta abandona o processamento centralizado para implementar inteligência distribuída estrita na borda (Edge AI), garantindo paralelismo espacial massivo e determinismo temporal absoluto.
 
+1. **Validação HIL e Imperfect Digital Twin:** Na ausência de um Analog Front-End (AFE), a verificação em silício utiliza simulação Hardware-in-the-Loop (HIL). O sistema processa fluxos contínuos de bancos de dados certificados (PhysioNet PTB/Apnea-ECG e NinaPro DB2). O diferencial reside na injeção parametrizada de falhas transientes e estocásticas (saturação de ADC, ruído 60Hz e deriva de impedância), estressando a imunidade assíncrona da malha de processamento sob condições reais de degradação.
+
+2. **Network-on-Chip (NoC) via AXI-Stream:** A infraestrutura de comunicação dispensa arbitração centralizada. O uso de roteamento assíncrono via barramentos AXI-Stream previne bloqueios temporais (bus locking). Rajadas estocásticas geradas por espasmos neuromusculares (EMG) transitam como pacotes independentes (flits), impedindo a introdução de jitter no fluxo de extração de características do domínio cardiovascular (ECG).
+
+3. **Sistemas Multiagentes (MAS) Heterogêneos:** O tecido lógico da Xilinx UltraScale+ é segmentado em Unidades de Processamento (PEs) encapsuladas e autônomas atuando em paralelo:
+   * **Agente ECG:** Extração temporal em ponto fixo (Filtro QRS).
+   * **Agente EEG:** Transposição espectral complexa (DSP / LFCC).
+   * **Agente EMG:** Processamento de largo espectro baseado em eventos (SNN / Envelope).
+
+4. **Thermal Governor (Governança Térmica Estrutural Ativa):** Módulo RTL dedicado à proteção orgânica contra necrose tecidual provocada pelo Efeito Joule em wearables. O agente monitora a temperatura do die e avalia a iminência de dano através de aproximação determinística da métrica termo-biológica CEM43 (via Lookup Table estrutural). Ao detectar inflexão térmica crítica (risco de aproximação aos 43°C), o governador atua nas regras da NoC forçando o descarte (throttling) de pacotes de biossinais periféricos não letais (EMG). Este estrangulamento ativo reduz instantaneamente o chaveamento lógico na malha, resfriando o silício e garantindo a manutenção ininterrupta da detecção de arritmias vitais do ECG.
 ---
 ![Diagrama de Blocos da Arquitetura Biomédica](assets/diagrama_arquitetura.png)
 ---
