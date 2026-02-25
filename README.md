@@ -35,6 +35,8 @@ Este projeto justifica-se pela proposição de uma arquitetura de Sistemas Multi
 3. **Precisão Mista e Quantização:** Co-design algoritmo-hardware utilizando quantização extrema (INT4) e aritmética de ponto fixo via Vitis HLS, viabilizando a execução dentro de orçamentos rígidos de memória BRAM/URAM.
 
 ---
+![Diagrama de Blocos da Arquitetura Biomédica](assets/diagrama_arquitetura.png)
+---
 
 ## 📂 Estrutura do Repositório
 
@@ -63,4 +65,4 @@ Bio-NoC-Guardian/
 │
 └── README.md
 
-![Diagrama de Blocos da Arquitetura Biomédica](assets/diagrama_arquitetura.png)
+
