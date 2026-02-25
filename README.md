@@ -17,7 +17,14 @@ O **Bio-NoC Guardian** é um sistema de *Edge AI* focado na monitorização biom
 
 A principal inovação metodológica deste projeto é o **Controle Térmico Ativo**. Em vez de tratar o aquecimento do chip de forma passiva, a arquitetura calcula o dano térmico cumulativo em nível celular ($CEM43$) em tempo real e executa um *throttling* estruturado para evitar a necrose do tecido orgânico adjacente, sem interromper a inferência de sinais vitais críticos.
 
+---
+## Justificativa do Projeto e Relevância Clínica
 
+A transição do monitoramento fisiológico contínuo para dispositivos vestíveis (*wearables*) e implantáveis exige o abandono de arquiteturas centralizadas baseadas em nuvem, devido à latência de transmissão e à vulnerabilidade dos dados. O processamento estrito na borda (Edge AI) em matrizes de portas programáveis (FPGAs) resolve o gargalo de von Neumann, garantindo paralelismo determinístico para a fusão simultânea de múltiplos biossinais (ECG, EEG e EMG).
+
+Contudo, essa miniaturização impõe uma restrição termodinâmica severa. O chaveamento de transistores em malhas lógicas de alta densidade gera aquecimento por Efeito Joule. Em hardwares posicionados em contato direto com a pele ou tecido subcutâneo, a capacidade deficiente de dissipação térmica do encapsulamento pode induzir danos celulares irreversíveis (necrose), modelados quantitativamente pela métrica biomédica CEM43 (*Cumulative Equivalent Minutes at 43°C*).
+
+Este projeto justifica-se pela proposição de uma arquitetura de Sistemas Multiagentes (MAS) que incorpora a governança térmica estrutural ativa diretamente no nível RTL. O sistema introduz um *Thermal Governor* que monitora e calcula o risco térmico em tempo real. Diante da iminência de dano tecidual, o governador atua sobre as regras de roteamento da *Network-on-Chip* (NoC) para executar o estrangulamento (*throttling*) seletivo de sinais não letais (atividade muscular - EMG). Essa intervenção reduz a dissipação de potência dinâmica e resfria o silício, garantindo que o monitoramento vital de suporte à vida (atividade cardíaca - ECG) opere de forma ininterrupta e clinicamente segura.
 
 ---
 
@@ -55,3 +62,5 @@ Bio-NoC-Guardian/
 │   └── papers/           # Drafts do artigo e relatórios técnicos (LaTeX)
 │
 └── README.md
+
+![Diagrama de Blocos da Arquitetura Biomédica](assets/diagrama_arquitetura.png)
