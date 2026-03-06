@@ -64,7 +64,7 @@ Bio-NoC-Guardian/
 │
 ├── hil/                  # Infraestrutura Hardware-in-the-Loop
 │   ├── datasets/         # Scripts de extração (PhysioNet PTB/CHB-MIT, NinaPro)
-│   ├── injector/         # Código Python para injeção de dados via UART/PCIe
+│   ├── injector/         # Código Python para injeção de dados via PCIe
 │   └── fault_models/     # Modelos de ruído para o "Imperfect Digital Twin"
 │
 ├── docs/                 # Documentação
