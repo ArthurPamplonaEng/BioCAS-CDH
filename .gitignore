@@ -1,0 +1,18 @@
+# Vivado logs and journals
+*.jou
+*.log
+*.str
+*.dmp
+*.zip
+.Xil/
+
+# Ignorar o diretório de compilação pesado do Vivado
+hw/vivado_proj/*/*.cache/
+hw/vivado_proj/*/*.hw/
+hw/vivado_proj/*/*.sim/
+hw/vivado_proj/*/*.runs/
+hw/vivado_proj/*/*.ip_user_files/
+
+# Arquivos de sistema do Windows
+Thumbs.db
+desktop.ini
